@@ -4,7 +4,9 @@ b = float(input("Inserisci il coefficiente di x: "))
 c = float(input("Inserisci il termine noto: "))
 if a == 0:
     print("Non è un'equazione di secondo grado, x=", -c/b)
-elif b == 0:
+elif a == 0 and b == 0:
+    print("L'equazione non ha soluzioni")
+elif a != 0 and b == 0:
     if -c/a < 0:
         print("L'equazione non ha soluzioni in R")
     else:
@@ -15,18 +17,6 @@ elif c == 0:
     x1 = 0
     x2 = -b/a
     print("L'equazione ha due soluzioni reali e distinte: x1=", x1, "e x2=", x2)          
-    if b/2==int(b/2):
-      delta = (b/2)**2 - a*c
-    if delta > 0:
-        x1 = (-b/2 - delta**0.5)/a
-        x2 = (-b/2 + delta**0.5)/a
-        print("L'equazione ha due soluzioni reali e distinte: x1=", x1, "e x2=", x2)
-    elif delta == 0:
-        x1 = -b/2/a
-        x2 = x1
-        print("L'equazione ha una soluzione doppia: x=", x1)
-    else: 
-        print("L'equazione non ha soluzioni in R")
 else: 
     delta = b**2-4*a*c
     if delta > 0:
