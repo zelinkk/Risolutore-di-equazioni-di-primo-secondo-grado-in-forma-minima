@@ -2,11 +2,13 @@
 a = float(input("Inserisci il coefficiente di x^2: "))
 b = float(input("Inserisci il coefficiente di x: "))
 c = float(input("Inserisci il termine noto: "))
-if a == 0:
+if a == 0 and b == 0 and c == 0:
+    print("L'equazione ha infinite soluzioni")
+elif a == 0 and b != 0 and c != 0:
     print("Non è un'equazione di secondo grado, x=", -c/b)
-elif a == 0 and b == 0:
+elif a == 0 and b == 0 and c != 0:
     print("L'equazione non ha soluzioni")
-elif a != 0 and b == 0:
+elif a != 0 and b == 0 and c != 0:
     if -c/a < 0:
         print("L'equazione non ha soluzioni in R")
     else:
