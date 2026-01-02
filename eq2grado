@@ -1,6 +1,8 @@
 #Risolutore di equazioni di secondo/primo grado aggiunti anche i casi particolari
 import math
 from fractions import Fraction
+print("Risolutore di equazioni di secondo grado della forma ax^2 + bx + c = 0")   
+print("Per coefficienti frazionari e irrazionali,inserire i valori in forma decimale (es. 0.5 per 1/2, 1.414 per √2)") 
 a = float(input("Inserisci il coefficiente di x^2: "))
 b = float(input("Inserisci il coefficiente di x: "))
 c = float(input("Inserisci il termine noto: "))
