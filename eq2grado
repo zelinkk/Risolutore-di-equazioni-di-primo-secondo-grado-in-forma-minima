@@ -1,10 +1,12 @@
 #Risolutore di equazioni di secondo/primo grado aggiunti anche i casi particolari
+import math
+from fractions import Fraction
 a = float(input("Inserisci il coefficiente di x^2: "))
 b = float(input("Inserisci il coefficiente di x: "))
 c = float(input("Inserisci il termine noto: "))
 if a == 0 and b == 0 and c == 0:
     print("L'equazione ha infinite soluzioni")
-elif a == 0 and b != 0 and c != 0:
+elif a == 0 and b != 0:
     print("Non è un'equazione di secondo grado, x=", -c/b)
 elif a == 0 and b == 0 and c != 0:
     print("L'equazione non ha soluzioni")
@@ -12,18 +14,18 @@ elif a != 0 and b == 0 and c != 0:
     if -c/a < 0:
         print("L'equazione non ha soluzioni in R")
     else:
-        x1 = (-c/a)**0.5
-        x2 = -(-c/a)**0.5
+        x1 = math.sqrt(-c/a)
+        x2 = -math.sqrt(-c/a)
         print("L'equazione ha due soluzioni reali e distinte: x1=", x1, "e x2=", x2)
-elif c == 0:
+elif a != 0 and b != 0 and c == 0:
     x1 = 0
     x2 = -b/a
     print("L'equazione ha due soluzioni reali e distinte: x1=", x1, "e x2=", x2)          
 else: 
     delta = b**2-4*a*c
     if delta > 0:
-        x1 = (-b - delta**0.5)/(2*a)
-        x2 = (-b + delta**0.5)/(2*a)
+        x1 = (-b - math.sqrt(delta))/(2*a)
+        x2 = (-b + math.sqrt(delta))/(2*a)
         print("L'equazione ha due soluzioni reali e distinte: x1=", x1, "e x2=", x2)
     elif delta == 0:
         x1 = -b/(2*a)
@@ -31,3 +33,5 @@ else:
         print("L'equazione ha una soluzione doppia: x=", x1)
     else: 
         print("L'equazione non ha soluzioni in R")
+if 'x1' in locals() and 'x2' in locals():       
+    print(f"Semplificate: x1 = {int(x1) if x1.is_integer() else Fraction(x1).limit_denominator(100)}, x2 = {int(x2) if x2.is_integer() else Fraction(x2).limit_denominator(100)}")
